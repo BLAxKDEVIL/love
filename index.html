@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #ffe6cc);
+      text-align: center;
+      overflow-x: hidden;
+    }
+    #start-screen {
+      padding: 4rem 1rem 2rem;
+      font-size: 1.8rem;
+      color: #b30059;
+    }
+    #start-screen button {
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ff0066;
+      animation: pulse 1.2s infinite;
+    }
+    #main-content {
+      display: none;
+      padding: 1rem;
+    }
+    #image-box {
+      max-width: 90%;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-top: 1rem;
+    }
+    #thought-box {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      color: #59004d;
+    }
+    #next-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #e6005c;
+      animation: pop 1.5s infinite;
+      cursor: pointer;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="start-screen">
+    <div>Hey my love 💖</div>
+    <div>This is a small surprise for you...</div>
+    <button onclick="startLoveShow()">❤️</button>
+  </div>
+
+  <div id="main-content">
+    <img id="image-box" src="" alt="Love Image">
+    <div id="thought-box"></div>
+    <button id="next-btn" onclick="showImage()">💗</button>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const startScreen = document.getElementById('start-screen');
+    const content = document.getElementById('main-content');
+    const imageBox = document.getElementById('image-box');
+    const thoughtBox = document.getElementById('thought-box');
+
+    const thoughts = [
+      "Your smile brightens my soul 🌸",
+      "Every moment with you is a gift 🎁",
+      "You are my sunshine and my calm 🌞🌙",
+      "Forever grateful for your love 💝",
+      "Your presence is my peace 🕊️",
+      "In your eyes, I see home 🏡",
+      "You're my once-in-a-lifetime 🌈",
+      "My heart chose you, again and again ❤️"
+    ];
+
+    const images = ['Snapchat-1121089532.jpg', 'Snapchat-1200526784.jpg', 'Snapchat-1285538889.jpg', 'Snapchat-1307878840.jpg', 'Snapchat-115455835.jpg', 'Snapchat-1701416715.jpg', 'Snapchat-2003979734.jpg', 'Snapchat-422556862.jpg'];
+
+    function startLoveShow() {
+      startScreen.style.display = 'none';
+      content.style.display = 'block';
+      showImage();
+    }
+
+    function showImage() {
+      if (currentIndex < images.length) {
+        imageBox.src = images[currentIndex];
+        thoughtBox.innerText = thoughts[currentIndex] || '';
+        currentIndex++;
+      } else {
+        thoughtBox.innerText = "That's all, my love 💞";
+      }
+    }
+  </script>
+
+</body>
+</html>
